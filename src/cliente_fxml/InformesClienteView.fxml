@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="728.0" prefWidth="685.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <ListView prefHeight="604.0" prefWidth="685.0" />
+      <HBox alignment="CENTER" layoutY="604.0" prefHeight="124.0" prefWidth="685.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="225.0" text="Mostrar informe" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

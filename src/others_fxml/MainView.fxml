@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="728.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainViewController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="728.0" prefWidth="1000.0" spacing="15.0">
+         <children>
+            <Label text="Escoge opción" textAlignment="CENTER">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="552.0" spacing="40.0">
+               <children>
+                  <RadioButton fx:id="proveedorRadioButton" mnemonicParsing="false" onAction="#radioButtonAction" text="Proveedor">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="opcionLogin" />
+                     </toggleGroup>
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="clienteRadioButton" mnemonicParsing="false" onAction="#radioButtonAction" text="Cliente" toggleGroup="$opcionLogin">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </HBox>
+            <Label text="Selecciona usuario">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+            <TableView fx:id="loginTableView" VBox.vgrow="NEVER" />
+            <Button mnemonicParsing="false" onAction="#loginButtonAction" text="LOGIN">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

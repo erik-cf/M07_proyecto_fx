@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="728.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proveedorControllers.ProveedorViewController">
+   <children>
+      <Pane fx:id="contentPane" layoutX="315.0" prefHeight="728.0" prefWidth="685.0" />
+      <ScrollPane prefViewportHeight="728.0" prefWidth="315.0">
+         <content>
+            <VBox prefWidth="300.0">
+               <children>
+                  <Button fx:id="buttonCliente" mnemonicParsing="false" onAction="#clickOnClienteView" prefHeight="96.0" prefWidth="300.0" text="Clientes" />
+                  <Button fx:id="buttonProductos" mnemonicParsing="false" onAction="#clickOnProductosView" prefHeight="96.0" prefWidth="300.0" text="Productos" />
+                  <Button fx:id="buttonPedidos" mnemonicParsing="false" onAction="#clickOnPedidosView" prefHeight="96.0" prefWidth="300.0" text="Pedidos" />
+                  <Button fx:id="buttonFacturas" mnemonicParsing="false" onAction="#clickOnFacturasView" prefHeight="96.0" prefWidth="300.0" text="Facturas" />
+                  <Button fx:id="buttonInformes" mnemonicParsing="false" onAction="#clickOnInformesView" prefHeight="96.0" prefWidth="300.0" text="Informes" />
+                  <Button fx:id="buttonConfiguracion" mnemonicParsing="false" onAction="#clickOnConfiguracionView" prefHeight="96.0" prefWidth="300.0" text="Configuración" />
+                  <Button fx:id="buttonInformacion" mnemonicParsing="false" onAction="#clickOnInformacionView" prefHeight="96.0" prefWidth="300.0" text="Información" />
+                  <Button fx:id="buttonCerrarSesion" mnemonicParsing="false" onAction="#clickOnCerrarSesion" prefHeight="96.0" prefWidth="300.0" text="Cerrar sesión" />
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
