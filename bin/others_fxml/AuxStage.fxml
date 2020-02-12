@@ -5,15 +5,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tools.AuxStageController">
+<AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tools.AuxStageController">
    <children>
-      <ListView fx:id="auxListView" prefHeight="495.0" prefWidth="400.0" />
-      <Button layoutX="88.0" layoutY="523.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="225.0" text="Cerrar" />
-      <TableView fx:id="auxTableView" prefHeight="495.0" prefWidth="400.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
+      <ListView fx:id="auxListView" prefHeight="495.0" prefWidth="700.0" />
+      <Button layoutX="238.0" layoutY="523.0" mnemonicParsing="false" onAction="#closeAction" prefHeight="45.0" prefWidth="225.0" text="Cerrar" />
+      <TableView fx:id="auxTableView" prefHeight="495.0" prefWidth="700.0" />
    </children>
 </AnchorPane>

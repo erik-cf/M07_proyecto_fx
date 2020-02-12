@@ -7,6 +7,7 @@ public class Factura {
 	private int id;
 	private Date fecha;
 	private HashMap<Producto, Float> productos;
+	private int countProductos;
 	private Proveedor proveedor;
 	private Cliente cliente;
 	private float importeBruto;
@@ -26,6 +27,7 @@ public class Factura {
 		} else {
 			this.productos = new HashMap<Producto, Float>();
 		}
+		this.countProductos = productos.size();
 		this.proveedor = proveedor;
 		this.cliente = cliente;
 		this.importeBruto = importeBruto;
@@ -54,6 +56,11 @@ public class Factura {
 
 	public void setProductos(HashMap<Producto, Float> productos) {
 		this.productos = productos;
+		this.countProductos = productos.size();
+	}
+	
+	public int getCountProductos() {
+		return this.countProductos;
 	}
 
 	public Proveedor getProveedor() {

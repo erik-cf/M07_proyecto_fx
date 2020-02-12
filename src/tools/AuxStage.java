@@ -14,7 +14,15 @@ public class AuxStage<T> extends Stage {
 	
 	public AuxStage(ArrayList<T> data) {
 		this.data = data;
-		
+		Parent root = null;
+		try {
+			
+			root = FXMLLoader.load(getClass().getResource("../others_fxml/AuxStage.fxml"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		Scene scene = new Scene(root,700,600);
+		this.setScene(scene);
 	}
 	
 	public ArrayList<T> getData() {

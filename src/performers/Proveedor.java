@@ -86,8 +86,7 @@ public class Proveedor {
 
 	@Override
 	public String toString() {
-		return "Proveedor [id=" + id + ", nombre=" + nombre + ", username=" + username + ", familia=" + familia
-				+ ", clientes=" + clientes + ", productos=" + productos + "]";
+		return nombre;
 	}
 
 }

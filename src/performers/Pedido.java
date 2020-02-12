@@ -8,6 +8,7 @@ public class Pedido {
 	private Cliente cliente;
 	private Proveedor proveedor;
 	private HashMap<Producto, Float> productos;
+	private int countProductos;
 	private float importeBruto;
 	private float importeNeto;
 	private Date fecha;
@@ -27,6 +28,7 @@ public class Pedido {
 		} else {
 			this.productos = new HashMap<Producto, Float>();
 		}
+		this.countProductos = productos.size();
 		this.importeBruto = importeBruto;
 		this.importeNeto = importeNeto;
 		this.fecha = fecha;
@@ -62,6 +64,11 @@ public class Pedido {
 
 	public void setProductos(HashMap<Producto, Float> productos) {
 		this.productos = productos;
+		this.countProductos = productos.size();
+	}
+	
+	public int getCountProductos() {
+		return this.countProductos;
 	}
 
 	public float getImporteBruto() {
