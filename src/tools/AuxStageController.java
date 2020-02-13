@@ -2,6 +2,7 @@ package tools;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
@@ -23,7 +24,9 @@ public class AuxStageController implements Initializable {
 	@FXML
 	ListView auxListView;
 
-	ArrayList data;
+	ArrayList dataArrayList;
+	
+	HashMap dataHashMap;
 
 	AuxStage stage;
 
@@ -34,10 +37,10 @@ public class AuxStageController implements Initializable {
 			@Override
 			public void run() {
 				stage = ((AuxStage) auxTableView.getScene().getWindow());
-				data = stage.getDataArrayList();
-
-				if (data.size() > 0) {
-					if (data.get(0).getClass().equals(Cliente.class)) {
+				dataArrayList = stage.getDataArrayList();
+				dataHashMap = stage.getDataHashMap();
+				if (dataArrayList.size() > 0) {
+					if (dataArrayList.get(0).getClass().equals(Cliente.class)) {
 						auxTableView.setDisable(true);
 						auxTableView.setVisible(false);
 						fillListView();
@@ -52,13 +55,13 @@ public class AuxStageController implements Initializable {
 	}
 
 	private void fillListView() {
-		auxListView.setItems(FXCollections.observableArrayList(data));
+		auxListView.setItems(FXCollections.observableArrayList(dataArrayList));
 		auxListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 	}
 
 	private void fillTableView() {
-		if (data.size() > 0) {
-			if (data.get(0).getClass().equals(Pedido.class)) {
+		if (dataArrayList.size() > 0) {
+			if (dataArrayList.get(0).getClass().equals(Pedido.class)) {
 
 				TableColumn<Pedido, Integer> idPedido = new TableColumn<Pedido, Integer>("id");
 				idPedido.setCellValueFactory(new PropertyValueFactory<Pedido, Integer>("id"));
@@ -74,7 +77,7 @@ public class AuxStageController implements Initializable {
 
 				auxTableView.getColumns().setAll(idPedido, productosPedido, importeBrutoPedidos, importeNetoPedidos);
 
-			} else if (data.get(0).getClass().equals(Factura.class)) {
+			} else if (dataArrayList.get(0).getClass().equals(Factura.class)) {
 				TableColumn<Factura, Integer> idFactura = new TableColumn<Factura, Integer>("id");
 				idFactura.setCellValueFactory(new PropertyValueFactory<Factura, Integer>("id"));
 
@@ -83,7 +86,7 @@ public class AuxStageController implements Initializable {
 
 				auxTableView.getColumns().setAll(idFactura, productosFactura);
 
-			} else if (data.get(0).getClass().equals(Proveedor.class)) {
+			} else if (dataArrayList.get(0).getClass().equals(Proveedor.class)) {
 				TableColumn<Proveedor, Integer> idProveedor = new TableColumn<Proveedor, Integer>("id");
 				idProveedor.setCellValueFactory(new PropertyValueFactory<Proveedor, Integer>("id"));
 
@@ -95,7 +98,7 @@ public class AuxStageController implements Initializable {
 
 				auxTableView.getColumns().setAll(idProveedor, nombreProveedor, familiaProveedor);
 
-			} else if (data.get(0).getClass().equals(Producto.class)) {
+			} else if (dataArrayList.get(0).getClass().equals(Producto.class)) {
 				TableColumn<Producto, String> nombreProducto = new TableColumn<Producto, String>("nombre");
 				nombreProducto.setCellValueFactory(new PropertyValueFactory<Producto, String>("nombre"));
 
@@ -120,7 +123,7 @@ public class AuxStageController implements Initializable {
 
 			}
 
-			auxTableView.setItems(FXCollections.observableArrayList(data));
+			auxTableView.setItems(FXCollections.observableArrayList(dataArrayList));
 		}
 	}
 

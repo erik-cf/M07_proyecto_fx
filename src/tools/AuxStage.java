@@ -29,6 +29,19 @@ public class AuxStage<T> extends Stage {
 		this.setScene(scene);
 	}
 	
+	public AuxStage(HashMap<T, ?> data) {
+		this.dataHashMap = data;
+		Parent root = null;
+		try {
+			
+			root = FXMLLoader.load(getClass().getResource("../others_fxml/AuxStage.fxml"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		Scene scene = new Scene(root,700,600);
+		this.setScene(scene);
+	}
+	
 	public ArrayList<T> getDataArrayList() {
 		return dataArrayList;
 	}
