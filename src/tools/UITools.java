@@ -24,8 +24,9 @@ public class UITools {
 	}
 	
 	public static <T> void deleteItemsFromControl(TableView<T> tV) {
-		
-	}
+		ObservableList<T> itemsToDelete = tV.getSelectionModel().getSelectedItems();
+		tV.getItems().removeAll(itemsToDelete);	
+		tV.getSelectionModel().clearSelection();	}
 	
 	public static <T> void setColumnsEqualWidth(TableView<T> tv) {
 		for(TableColumn<T, ?> column : tv.getColumns()) {

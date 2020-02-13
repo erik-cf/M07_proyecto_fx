@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="728.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="728.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proveedorControllers.PedidoProveedorViewController">
    <children>
       <HBox alignment="CENTER" layoutY="634.0" prefHeight="124.0" prefWidth="685.0">
          <children>
@@ -24,7 +24,7 @@
       </HBox>
       <HBox alignment="CENTER" layoutY="500.0" prefHeight="124.0" prefWidth="685.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="225.0" text="Eliminar pedido">
+            <Button mnemonicParsing="false" onAction="#deleteItems" prefHeight="45.0" prefWidth="225.0" text="Eliminar pedido">
                <HBox.margin>
                   <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                </HBox.margin>
@@ -36,7 +36,7 @@
             </Button>
          </children>
       </HBox>
-      <TableView prefHeight="500.0" prefWidth="685.0">
+      <TableView fx:id="pedidoTableView" prefHeight="500.0" prefWidth="685.0">
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
           <TableColumn prefWidth="75.0" text="C2" />

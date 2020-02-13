@@ -34,7 +34,7 @@ public class AuxStageController implements Initializable {
 			@Override
 			public void run() {
 				stage = ((AuxStage) auxTableView.getScene().getWindow());
-				data = stage.getData();
+				data = stage.getDataArrayList();
 
 				if (data.size() > 0) {
 					if (data.get(0).getClass().equals(Cliente.class)) {
