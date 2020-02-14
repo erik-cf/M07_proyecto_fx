@@ -51,6 +51,8 @@ public class ProductoProveedorViewController implements Initializable {
 		productosTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
 	}
+	
+	// TODO Modificar producto
 
 	public void deleteItems() {
 		UITools.deleteItemsFromControl(productosTableView);

@@ -13,7 +13,10 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import performers.Pedido;
+import performers.Producto;
+import tools.AuxStage;
 import tools.UITools;
 
 public class PedidoProveedorViewController implements Initializable{
@@ -52,8 +55,14 @@ public class PedidoProveedorViewController implements Initializable{
 		UITools.deleteItemsFromControl(pedidoTableView);
 	}
 	
+	// TODO Modificar pedido
+	// TODO Cobrar pedido
+	
 	public void detailPedido() {
-		
+		AuxStage<Producto> auxStage = new AuxStage(UITools.getListProductoAux(pedidoTableView.getSelectionModel().getSelectedItem()));
+		auxStage.initModality(Modality.WINDOW_MODAL);
+		auxStage.initOwner(pedidoTableView.getScene().getWindow());
+		auxStage.show();
 	}
 
 	

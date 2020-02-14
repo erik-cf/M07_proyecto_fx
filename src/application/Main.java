@@ -1,6 +1,5 @@
 package application;
 	
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import bbdd_tools.Initializer;
@@ -16,7 +15,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 
 public class Main extends Application {
-	
+	// TODO Toda la parte de BBDD
 	public static ArrayList<Proveedor> proveedores = new ArrayList<Proveedor>();
 	public static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 	public static ArrayList<Pedido> pedidos = new ArrayList<Pedido>();

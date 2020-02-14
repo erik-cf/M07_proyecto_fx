@@ -30,6 +30,7 @@ public class Initializer extends ConnectionManager implements ConnectionInterfac
 		Producto prod;
 		Pedido ped;
 		Factura fac;
+		Proveedor provProd;
 		while (rs.next()) {
 			prov = new Proveedor();
 			prov.setId(rs.getInt("id"));
@@ -58,7 +59,9 @@ public class Initializer extends ConnectionManager implements ConnectionInterfac
 			prod.setPrecio(rs.getFloat("precio"));
 			prod.setStock(rs.getFloat("stock"));
 			prod.setDescuento(rs.getFloat("descuento"));
-			prod.setProveedor(SearchTools.getProveedorById(rs.getInt("id_proveedor")));
+			provProd = SearchTools.getProveedorById(rs.getInt("id_proveedor"));
+			prod.setProveedor(provProd);
+			provProd.getProductos().add(prod);
 			Main.productos.add(prod);
 		}
 

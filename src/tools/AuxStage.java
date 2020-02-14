@@ -2,7 +2,6 @@ package tools;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,10 +10,7 @@ import javafx.stage.Stage;
 
 public class AuxStage<T> extends Stage {
 	
-	public ArrayList<T> dataArrayList;
-	
-	public HashMap<T, ?> dataHashMap;
-	
+	public ArrayList<T> dataArrayList;	
 	
 	public AuxStage(ArrayList<T> data) {
 		this.dataArrayList = data;
@@ -29,25 +25,7 @@ public class AuxStage<T> extends Stage {
 		this.setScene(scene);
 	}
 	
-	public AuxStage(HashMap<T, ?> data) {
-		this.dataHashMap = data;
-		Parent root = null;
-		try {
-			
-			root = FXMLLoader.load(getClass().getResource("../others_fxml/AuxStage.fxml"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		Scene scene = new Scene(root,700,600);
-		this.setScene(scene);
-	}
-	
 	public ArrayList<T> getDataArrayList() {
 		return dataArrayList;
 	}
-	
-	public HashMap<T, ?> getDataHashMap(){
-		return dataHashMap;
-	}
-
 }

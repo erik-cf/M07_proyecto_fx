@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteControllers.ProveedorClienteViewController">
    <children>
       <HBox alignment="CENTER" layoutY="460.0" prefHeight="124.0" prefWidth="685.0">
          <children>
@@ -14,7 +14,7 @@
                   <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="225.0" text="Ver productos">
+            <Button mnemonicParsing="false" onAction="#lookForProducts" prefHeight="45.0" prefWidth="225.0" text="Ver productos">
                <HBox.margin>
                   <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                </HBox.margin>
@@ -23,19 +23,19 @@
       </HBox>
       <HBox alignment="CENTER" depthTest="DISABLE" layoutY="604.0" prefHeight="124.0" prefWidth="685.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="225.0" text="Consultar pedidos">
+            <Button mnemonicParsing="false" onAction="#lookForPedidos" prefHeight="45.0" prefWidth="225.0" text="Consultar pedidos">
                <HBox.margin>
                   <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="225.0" text="Eliminar proveedor">
+            <Button mnemonicParsing="false" onAction="#deleteItems" prefHeight="45.0" prefWidth="225.0" text="Eliminar proveedor">
                <HBox.margin>
                   <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                </HBox.margin>
             </Button>
          </children>
       </HBox>
-      <TableView prefHeight="460.0" prefWidth="685.0">
+      <TableView fx:id="proveedorTableView" prefHeight="460.0" prefWidth="685.0">
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
           <TableColumn prefWidth="75.0" text="C2" />
