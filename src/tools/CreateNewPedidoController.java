@@ -1,5 +1,6 @@
 package tools;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -8,10 +9,12 @@ import java.util.ResourceBundle;
 
 import application.Main;
 import bbdd_tools.ProveedorManager;
+import clienteControllers.ClienteViewController;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -170,5 +173,13 @@ public class CreateNewPedidoController implements Initializable {
 		Main.pedidos.add(newPedido);
 		Main.selectedCliente.getPedidos().add(newPedido);
 		((CreateNewStage)productChoiceBox.getScene().getWindow()).close();
+		try {
+			ClienteViewController.loaderPaneStatic = FXMLLoader.load(getClass().getResource("../cliente_fxml/PedidoClienteView.fxml"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		ClienteViewController.contentPaneStatic.getChildren().clear();
+		ClienteViewController.contentPaneStatic.getChildren().add(ClienteViewController.loaderPaneStatic);
+		
 	}
 }

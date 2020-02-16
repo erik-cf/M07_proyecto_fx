@@ -50,8 +50,10 @@ public class ClienteViewController implements Initializable {
 
 	@FXML
 	Pane contentPane;
+	public static Pane contentPaneStatic;
 	
 	Pane loaderPane;
+	public static Pane loaderPaneStatic;
 	
 	Button selectedButton;
 
@@ -141,6 +143,8 @@ public class ClienteViewController implements Initializable {
 			selectedButton = buttonInformacion;
 			break;
 		}
+		loaderPaneStatic = loaderPane;
+		contentPaneStatic = contentPane;
 		contentPane.getChildren().clear();
 		contentPane.getChildren().add(loaderPane);
 	}

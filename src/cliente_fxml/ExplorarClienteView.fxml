@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="728.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteControllers.ExplorarClienteViewController">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" text="Proveedores no agregados">
+      <Label layoutX="20.0" layoutY="14.0" text="Proveedores no agregados">
          <font>
             <Font size="30.0" />
          </font>

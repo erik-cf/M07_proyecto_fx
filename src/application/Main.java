@@ -16,12 +16,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 
 public class Main extends Application {
-	// TODO Ya esta BBDD?
-	// TODO Menu Superior
-	// TODO Menu contextual
 	// TODO Informes
-	// TODO CSS
-	// TODO delete products
 	public static ArrayList<Proveedor> proveedores = new ArrayList<Proveedor>();
 	public static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 	public static ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
