@@ -1,7 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-</AnchorPane>
 
+<AnchorPane prefHeight="520.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="tools.CreateNewProductoController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="440.0" prefWidth="300.0" spacing="40.0">
+         <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+         </padding>
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Nombre">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Descripcion">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="¿Se vende por peso?">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Precio">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Stock">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Descuento">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" layoutX="300.0" prefHeight="440.0" prefWidth="300.0" spacing="42.0">
+         <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+         </padding>
+         <children>
+            <TextField fx:id="nombreTextField" />
+            <TextField fx:id="descripcionTextField" />
+            <HBox alignment="CENTER" prefHeight="25.0" prefWidth="220.0" spacing="60.0">
+               <children>
+                  <RadioButton fx:id="siRadioButton" mnemonicParsing="false" text="Sí">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="porPesoGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="noRadioButton" mnemonicParsing="false" text="No" toggleGroup="$porPesoGroup" />
+               </children>
+            </HBox>
+            <TextField fx:id="precioTextField" />
+            <TextField fx:id="stockTextField" />
+            <TextField fx:id="descuentoTextField" />
+         </children>
+      </VBox>
+      <Button layoutX="188.0" layoutY="450.0" mnemonicParsing="false" onAction="#guardar" prefHeight="45.0" prefWidth="225.0" text="Guardar" />
+   </children>
+</AnchorPane>

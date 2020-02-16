@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.Main;
 import application.MenuBarController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -56,6 +57,7 @@ public class ClienteViewController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		((BorderPane)Main.mainStaticStage.getScene().getRoot()).setOnContextMenuRequested(null);
 		try {
 			loaderPane = FXMLLoader.load(getClass().getResource("../cliente_fxml/ProveedorClienteView.fxml"));
 			contentPane.getChildren().add(loaderPane);

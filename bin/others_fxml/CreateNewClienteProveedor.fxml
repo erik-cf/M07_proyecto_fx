@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="tools.CreateNewUserController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="510.0" prefWidth="400.0" spacing="20.0">
+         <children>
+            <Label text="Crear nuevo usuario">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label text="Escoge una opción">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <RadioButton fx:id="clienteRadioButton" mnemonicParsing="false" onAction="#showOption" text="Cliente">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="userGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="proveedorRadioButton" mnemonicParsing="false" onAction="#showOption" text="Proveedor" toggleGroup="$userGroup" />
+               </children>
+            </HBox>
+            <Label text="Nombre:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nombreTextField" />
+            <Label text="Nombre de usuario:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="userTextField" />
+            <Label fx:id="labelFamilia" text="Familia">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="familiaTextField" />
+         </children>
+         <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+         </padding>
+      </VBox>
+      <Button layoutX="88.0" layoutY="524.0" mnemonicParsing="false" onAction="#guardar" prefHeight="45.0" prefWidth="225.0" text="Guardar" />
+   </children>
+</AnchorPane>

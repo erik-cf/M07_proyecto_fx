@@ -1,1 +1,77 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.borderpane {
+	-fx-background-color: rgb(30, 30, 30);
+}
+
+.borderpane .label {
+	-fx-text-base-color: rgb(221,221,221);
+	-fx-text-fill: rgb(221,221,221);
+}
+
+.borderpane .radio-button {
+	-fx-text-base-color: rgb(221,221,221);
+	-fx-text-fill: rgb(221,221,221);
+}
+
+.borderpane .table-column .label {
+	-fx-text-base-color: rgb(00,00,00);
+	-fx-text-fill: rgb(00,00,00);
+}
+
+.borderpane .button {
+	-fx-background-color: rgb(60, 60, 60);
+	-fx-text-fill: rgb(221,221,221);
+}
+
+.borderpane .menu-bar {
+	-fx-background-color: rgb(0, 0, 0);
+}
+
+.borderpane .menu-item {
+	-fx-background-color: rgb(20, 20, 20);
+}
+
+.borderpane .menu-item:hover {
+	-fx-background-color: #005797;
+}
+
+.table-view, .table-row-cell:even {
+	-fx-background-color: rgb(20, 20, 20);
+}
+
+.indexed-cell {
+	-fx-text-fill: rgb(200,200,200);
+}
+
+.table-view .table-row-cell:odd {
+	-fx-background-color: rgb(25, 25, 25);
+}
+
+.borderpane .table-row-cell:selected {
+    -fx-background-color: #005797;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
+
+.list-cell:odd {
+	-fx-background-color: rgb(25, 25, 25);	
+}
+
+.list-cell {
+	-fx-background-color: rgb(20, 20, 20);
+}
+
+.list-cell:selected {
+	-fx-background-color: #005797;
+}
+
+.list-view {
+	-fx-background-color: rgb(20, 20, 20);
+}
+
+.borderpane .button:pressed {
+	-fx-background-color: rgb(10, 10, 10);
+	-fx-border-color: #999;
+	-fx-border-width: 1px;
+}

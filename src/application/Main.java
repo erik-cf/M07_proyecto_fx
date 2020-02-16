@@ -20,6 +20,8 @@ public class Main extends Application {
 	// TODO Menu Superior
 	// TODO Menu contextual
 	// TODO Informes
+	// TODO CSS
+	// TODO delete products
 	public static ArrayList<Proveedor> proveedores = new ArrayList<Proveedor>();
 	public static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 	public static ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
@@ -27,9 +29,11 @@ public class Main extends Application {
 	public static ArrayList<Producto> productos = new ArrayList<Producto>();
 	public static Proveedor selectedProveedor;
 	public static Cliente selectedCliente;
+	public static Stage mainStaticStage;
 	
 	@Override
 	public void start(Stage primaryStage) {
+		mainStaticStage = primaryStage;
 		primaryStage.setOnCloseRequest(value -> {
 			Alert a = new Alert(AlertType.CONFIRMATION, "Estás seguro que quieres salir?", ButtonType.OK, ButtonType.CANCEL);
 			a.setTitle("Salir");
@@ -60,8 +64,9 @@ public class Main extends Application {
 			BorderPane mainPane = new BorderPane();
 			
 			Parent root = FXMLLoader.load(getClass().getResource("../others_fxml/MainView.fxml"));
-			mainPane.setCenter(root);
 			
+			mainPane.setCenter(root);
+			mainPane.getStyleClass().add("borderpane");
 			Scene scene = new Scene(mainPane,1000,768);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);

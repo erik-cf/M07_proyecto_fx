@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,14 +14,19 @@ import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import performers.Cliente;
 import performers.Proveedor;
+import tools.CreateNewStage;
 
 public class MainViewController extends Main implements Initializable {
 	
@@ -40,6 +46,21 @@ public class MainViewController extends Main implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		ContextMenu menuContextual = new ContextMenu();
+		MenuItem createNewUser = new MenuItem("Nuevo usuario...");
+		createNewUser.setOnAction(e -> {
+			CreateNewStage newProduct = new CreateNewStage(CreateNewStage.USER, null);
+			newProduct.initModality(Modality.WINDOW_MODAL);
+			newProduct.initOwner(Main.mainStaticStage);
+			newProduct.show();
+		});
+		menuContextual.getItems().add(createNewUser);
+		Platform.runLater(() -> {
+			
+			((BorderPane)loginTableView.getScene().getRoot()).setOnContextMenuRequested(e->{
+				menuContextual.show(mainStaticStage, e.getScreenX(), e.getScreenY());
+			});
+		});
 		
 	}
 	
@@ -56,7 +77,7 @@ public class MainViewController extends Main implements Initializable {
 	        
 	        loginData = FXCollections.observableList(Main.clientes);
 	        loginTableView.setItems(loginData);
-		}else {// if(opcionLogin.getSelectedToggle().equals(proveedorRadioButton)) {
+		}else {
 			TableColumn<Proveedor, String> nombreProveedor = new TableColumn<Proveedor, String>("nombre");
 	        nombreProveedor.setCellValueFactory(new PropertyValueFactory<Proveedor, String>("nombre"));
 	        TableColumn<Proveedor, String> usernameProveedor = new TableColumn<Proveedor, String>("username");

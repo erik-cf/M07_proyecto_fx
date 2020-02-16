@@ -3,6 +3,7 @@ package bbdd_tools;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import application.Main;
 import javafx.collections.ObservableList;
@@ -59,6 +60,20 @@ public class ClienteManager extends ConnectionManager {
 		pstmnt.setInt(1, Main.selectedCliente.getId());
 		pstmnt.setInt(2, p.getId());
 		pstmnt.execute();
+	}
+	
+	public static void insertCliente(Cliente c) throws SQLException {
+		String sql = "INSERT INTO cliente (nombre, username) VALUES (?, ?)";
+		PreparedStatement pstmnt = getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+		pstmnt.setString(1, c.getNombre());
+		pstmnt.setString(2, c.getUsername());
+		pstmnt.execute();
+		ResultSet rs = pstmnt.getGeneratedKeys();
+		if (rs.next()) {
+			c.setId(rs.getInt(1));
+		} else {
+			throw new SQLException("Couldn't get the ID for the client inserted...");
+		}
 	}
 
 }

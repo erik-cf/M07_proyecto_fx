@@ -15,6 +15,7 @@ public class CreateNewStage extends Stage {
 
 	public static final int PRODUCTO = 0x00001f;
 	public static final int PEDIDO = 0x00002f;
+	public static final int USER = 0x00003f;
 	
 	private Proveedor proveedor;
 	
@@ -22,10 +23,21 @@ public class CreateNewStage extends Stage {
 		this.proveedor = proveedor;
 		Parent root = null;
 		if(newPerformer == PRODUCTO) {
-			
+			try {
+				
+					root = FXMLLoader.load(getClass().getResource("../others_fxml/NewProductoStage.fxml"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}else if(newPerformer == PEDIDO) {
 			try {
 				root = FXMLLoader.load(getClass().getResource("../others_fxml/NewPedidoStage.fxml"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}else if(newPerformer == USER){
+			try {
+				root = FXMLLoader.load(getClass().getResource("../others_fxml/CreateNewClienteProveedor.fxml"));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -33,7 +45,7 @@ public class CreateNewStage extends Stage {
 			new Alert(AlertType.ERROR, "No se ha pasado un parametro correcto a la ventana CreateNewStage", ButtonType.OK).show();
 			return;
 		}
-		Scene scene = new Scene(root,600,800);
+		Scene scene = new Scene(root);
 		this.setScene(scene);
 		
 	}
