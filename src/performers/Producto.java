@@ -42,6 +42,18 @@ public class Producto {
 			this.facturas = facturas;
 		}
 	}
+	
+	public Producto(int id, String nombre, String descripcion, boolean ventaPorPeso, float precio, float stock, float descuento, Proveedor proveedor) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.ventaPorPeso = ventaPorPeso;
+		this.precio = precio;
+		this.stock = stock;
+		this.descuento = descuento;
+		this.proveedor = proveedor;
+	}
 
 	public int getId() {
 		return id;
@@ -126,9 +138,6 @@ public class Producto {
 	@Override
 	public String toString() {
 		return nombre;
-	}
-	
-	
-	
+	}	
 }
 

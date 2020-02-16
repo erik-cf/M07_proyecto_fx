@@ -9,13 +9,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import performers.Factura;
-import performers.Producto;
+import performers.ProductoAux;
 import tools.AuxStage;
 import tools.UITools;
 
@@ -51,7 +54,12 @@ public class FacturaProveedorViewController implements Initializable{
 	}
 	
 	public void detailFactura() {
-		AuxStage<Producto> auxStage = new AuxStage(UITools.getListProductoAux(facturaTableView.getSelectionModel().getSelectedItem()));
+		if(facturaTableView.getSelectionModel().getSelectedItem() == null) {
+			new Alert(AlertType.ERROR, "¡Debes seleccionar un elemento primero!", ButtonType.OK).show();
+			return;
+		}
+		
+		AuxStage<ProductoAux> auxStage = new AuxStage<ProductoAux>(UITools.getListProductoAux(facturaTableView.getSelectionModel().getSelectedItem()));
 		auxStage.initModality(Modality.WINDOW_MODAL);
 		auxStage.initOwner(facturaTableView.getScene().getWindow());
 		auxStage.show();

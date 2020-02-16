@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="tools.CreateNewPedidoController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="255.0" prefWidth="300.0" spacing="100.0">
+         <children>
+            <Label text="Producto">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="-20.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Cantidad">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+         </padding>
+      </VBox>
+      <TableView fx:id="pedidoTableView" layoutY="345.0" prefHeight="345.0" prefWidth="600.0" />
+      <Button layoutX="464.0" layoutY="723.0" mnemonicParsing="false" onAction="#completarPedido" prefHeight="45.0" prefWidth="112.0" text="Completar" />
+      <VBox alignment="CENTER" layoutX="300.0" prefHeight="255.0" prefWidth="300.0" spacing="100.0">
+         <children>
+            <ChoiceBox fx:id="productChoiceBox" />
+            <TextField fx:id="quantityTextField" />
+         </children>
+         <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+         </padding>
+      </VBox>
+      <Label layoutX="32.0" layoutY="714.0" text="Importe bruto">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="745.0" text="Importe neto">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="brutoLabel" layoutX="163.0" layoutY="714.0" text="0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="netoLabel" layoutX="163.0" layoutY="745.0" text="0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="188.0" layoutY="280.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="45.0" prefWidth="225.0" text="Añadir producto" />
+      <Button layoutX="315.0" layoutY="723.0" mnemonicParsing="false" onAction="#deleteItems" prefHeight="45.0" prefWidth="112.0" text="Eliminar selección" />
+   </children>
+</AnchorPane>

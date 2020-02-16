@@ -29,6 +29,15 @@ public class SearchTools {
 		return null;
 	}
 	
+	public static Producto getProductoByAux(ProductoAux pAux) {
+		for(Producto p : Main.productos) {
+			if(pAux.getNombre().equals(p.getNombre())) {
+				return p;
+			}
+		}
+		return null;
+	}
+	
 	public static Pedido getPedidoById(int id) {
 		for(Pedido p : Main.pedidos){
 			if(p.getId() == id)

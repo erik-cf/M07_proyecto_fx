@@ -93,12 +93,13 @@ public class Initializer extends ConnectionManager implements ConnectionInterfac
 	}
 
 	private static void fillManyToMany() throws SQLException {
-		ResultSet rs = getResultSet(SQLGETCLIENTESPROVEEDOR);
 		Proveedor p;
 		Cliente c;
 		Factura f;
 		Pedido pe;
 		Producto pr;
+		
+		ResultSet rs = getResultSet(SQLGETCLIENTESPROVEEDOR);
 		while (rs.next()) {
 			p = SearchTools.getProveedorById(rs.getInt("id_proveedor"));
 			c = SearchTools.getClienteById(rs.getInt("id_cliente"));
@@ -113,9 +114,9 @@ public class Initializer extends ConnectionManager implements ConnectionInterfac
 			pr = SearchTools.getProductoById(rs.getInt("id_producto"));
 			pe = SearchTools.getPedidoById(rs.getInt("id_pedido"));
 			if (pr != null && pe != null) {
-				pr.getPedidos().add(pe);
 				pe.getProductos().put(pr, rs.getFloat("cantidad"));
 			}
+			pe.setCountProductos(pe.getProductos().size());
 		}
 		
 		rs = getResultSet(SQLGETPRODUCTOSFACTURA);
@@ -123,9 +124,9 @@ public class Initializer extends ConnectionManager implements ConnectionInterfac
 			pr = SearchTools.getProductoById(rs.getInt("id_producto"));
 			f = SearchTools.getFacturaById(rs.getInt("id_factura"));
 			if (pr != null && f != null) {
-				pr.getFacturas().add(f);
 				f.getProductos().put(pr, rs.getFloat("cantidad"));
 			}
+			f.setCountProductos(f.getProductos().size());
 		}
 	}
 	

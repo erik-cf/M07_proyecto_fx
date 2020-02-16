@@ -1,6 +1,7 @@
 package application;
 	
 import java.util.ArrayList;
+import java.util.Optional;
 
 import bbdd_tools.Initializer;
 import javafx.application.Application;
@@ -15,7 +16,10 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 
 public class Main extends Application {
-	// TODO Toda la parte de BBDD
+	// TODO Ya esta BBDD?
+	// TODO Menu Superior
+	// TODO Menu contextual
+	// TODO Informes
 	public static ArrayList<Proveedor> proveedores = new ArrayList<Proveedor>();
 	public static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 	public static ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
@@ -26,6 +30,18 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
+		primaryStage.setOnCloseRequest(value -> {
+			Alert a = new Alert(AlertType.CONFIRMATION, "Estás seguro que quieres salir?", ButtonType.OK, ButtonType.CANCEL);
+			a.setTitle("Salir");
+			a.setHeaderText("Confirmar salida");
+			Optional<ButtonType> result = a.showAndWait();
+			if(result.get().equals(ButtonType.OK)) {
+				primaryStage.close();
+			}else {
+				a.close();
+				value.consume();
+			}			
+		});
 		
 		try {
 			Initializer.fillMainArrays();

@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="728.0" prefWidth="685.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="728.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proveedorControllers.ConfiguracionProveedorViewController">
    <children>
       <VBox alignment="CENTER" prefHeight="728.0" prefWidth="342.5">
          <children>
@@ -41,24 +40,24 @@
       </VBox>
       <VBox alignment="CENTER" layoutX="343.0" prefHeight="728.0" prefWidth="342.5">
          <children>
-            <TextField prefHeight="40.0">
+            <TextField fx:id="nameTextField" prefHeight="40.0">
                <VBox.margin>
                   <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
                </VBox.margin>
             </TextField>
-            <TextField prefHeight="40.0">
+            <TextField fx:id="usernameTextField" prefHeight="40.0">
                <VBox.margin>
                   <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
                </VBox.margin>
             </TextField>
-            <TextField prefHeight="40.0">
+            <TextField fx:id="familiaTextField" prefHeight="40.0">
                <VBox.margin>
                   <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
                </VBox.margin>
             </TextField>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" text="Modificar" />
+                  <Button mnemonicParsing="false" onAction="#applyChanges" prefHeight="45.0" prefWidth="125.0" text="Modificar" />
                </children>
             </HBox>
          </children>

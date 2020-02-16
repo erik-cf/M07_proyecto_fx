@@ -10,12 +10,12 @@
    <children>
       <HBox alignment="CENTER" layoutY="634.0" prefHeight="124.0" prefWidth="685.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#detailPedido" prefHeight="45.0" prefWidth="225.0" text="Ver/Editar productos">
+            <Button mnemonicParsing="false" onAction="#detailPedido" prefHeight="45.0" prefWidth="225.0" text="Ver productos">
                <HBox.margin>
                   <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="225.0" text="Cobrar pedido">
+            <Button mnemonicParsing="false" onAction="#cobrarPedido" prefHeight="45.0" prefWidth="225.0" text="Cobrar pedido">
                <HBox.margin>
                   <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                </HBox.margin>
@@ -25,11 +25,6 @@
       <HBox alignment="CENTER" layoutY="500.0" prefHeight="124.0" prefWidth="685.0">
          <children>
             <Button mnemonicParsing="false" onAction="#deleteItems" prefHeight="45.0" prefWidth="225.0" text="Eliminar pedido">
-               <HBox.margin>
-                  <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
-               </HBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="225.0" text="Modificar pedido">
                <HBox.margin>
                   <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                </HBox.margin>

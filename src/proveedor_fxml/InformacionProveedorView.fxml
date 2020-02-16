@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="724.0" prefWidth="685.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="724.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proveedorControllers.InformacionProveedorViewController">
    <children>
       <VBox alignment="CENTER" prefHeight="728.0" prefWidth="342.5">
          <children>
@@ -48,7 +47,7 @@
       </VBox>
       <VBox alignment="CENTER" layoutX="343.0" prefHeight="728.0" prefWidth="342.5">
          <children>
-            <Label text="0">
+            <Label fx:id="numProductos" text="0">
                <font>
                   <Font size="25.0" />
                </font>
@@ -56,7 +55,7 @@
                   <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
                </VBox.margin>
             </Label>
-            <Label text="0">
+            <Label fx:id="numClientes" text="0">
                <VBox.margin>
                   <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
                </VBox.margin>
@@ -64,7 +63,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label text="0">
+            <Label fx:id="numFacturas" text="0">
                <VBox.margin>
                   <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
                </VBox.margin>
@@ -72,7 +71,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label text="0">
+            <Label fx:id="numPedidosPendientes" text="0">
                <VBox.margin>
                   <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
                </VBox.margin>

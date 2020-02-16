@@ -52,8 +52,6 @@ public class ProductoProveedorViewController implements Initializable {
 
 	}
 	
-	// TODO Modificar producto
-
 	public void deleteItems() {
 		UITools.deleteItemsFromControl(productosTableView);
 	}

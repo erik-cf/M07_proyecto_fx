@@ -70,6 +70,10 @@ public class Pedido {
 	public int getCountProductos() {
 		return this.countProductos;
 	}
+	
+	public void setCountProductos(int countProductos) {
+		this.countProductos = countProductos;
+	}
 
 	public float getImporteBruto() {
 		return importeBruto;
@@ -100,6 +104,8 @@ public class Pedido {
 		return "Pedido [id=" + id + ", cliente=" + cliente + ", productos=" + productos + ", importeBruto="
 				+ importeBruto + ", importeNeto=" + importeNeto + "]";
 	}
+	
+	
 	
 	
 

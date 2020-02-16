@@ -9,7 +9,7 @@
    <children>
       <HBox alignment="CENTER" layoutY="460.0" prefHeight="124.0" prefWidth="685.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="225.0" text="Registrar pedido">
+            <Button mnemonicParsing="false" onAction="#registrarPedido" prefHeight="45.0" prefWidth="225.0" text="Registrar pedido">
                <HBox.margin>
                   <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                </HBox.margin>

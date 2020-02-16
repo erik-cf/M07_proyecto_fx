@@ -1,6 +1,7 @@
 package tools;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
@@ -32,7 +33,22 @@ public class UITools {
 	public static <T> void deleteItemsFromControl(TableView<T> tV) {
 		ObservableList<T> itemsToDelete = tV.getSelectionModel().getSelectedItems();
 		tV.getItems().removeAll(itemsToDelete);	
-		tV.getSelectionModel().clearSelection();	}
+		tV.getSelectionModel().clearSelection();	
+	}
+	
+	public static <T> ObservableList<T> deleteItemsReturnItems(TableView<T> tV){
+		ObservableList<T> itemsToDelete = tV.getSelectionModel().getSelectedItems();
+		tV.getItems().removeAll(itemsToDelete);	
+		tV.getSelectionModel().clearSelection();	
+		return itemsToDelete;
+	}
+	
+	public static <T> T deleteItemReturnItem(TableView<T> tV){
+		T itemToDelete = tV.getSelectionModel().getSelectedItem();
+		tV.getItems().remove(itemToDelete);	
+		tV.getSelectionModel().clearSelection();	
+		return itemToDelete;
+	}
 	
 	public static <T> void setColumnsEqualWidth(TableView<T> tv) {
 		for(TableColumn<T, ?> column : tv.getColumns()) {
@@ -70,6 +86,32 @@ public class UITools {
 		}
 		
 		return aLProductoAux;
+	}
+	
+	public static boolean checkParseInt(String text) {
+		try {
+			Integer.parseInt(text);
+			return true;
+		}catch(NumberFormatException ime) {
+			return false;
+		}
+	}
+	
+	public static boolean checkParseFloat(String text) {
+		try {
+			Float.parseFloat(text);
+			return true;
+		}catch(NumberFormatException nfe) {
+			return false;
+		}
+	}
+	
+	public static float recalculate(TableView<ProductoAux> tv) {
+		float total = 0;
+		for(ProductoAux p : tv.getItems()) {
+			total = total + (p.getTotal());
+		}
+		return total;
 	}
 	
 }

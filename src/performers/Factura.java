@@ -62,6 +62,10 @@ public class Factura {
 	public int getCountProductos() {
 		return this.countProductos;
 	}
+	
+	public void setCountProductos(int countProductos) {
+		this.countProductos = countProductos;
+	}
 
 	public Proveedor getProveedor() {
 		return proveedor;

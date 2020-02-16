@@ -88,9 +88,11 @@ public class MainViewController extends Main implements Initializable {
 		Parent root;
 		if(clienteRadioButton.isSelected()) {
 			Main.selectedCliente = (Cliente)loginTableView.getSelectionModel().getSelectedItem();
+			Main.selectedProveedor = null;
 			root = FXMLLoader.load(getClass().getResource("../cliente_fxml/ClienteView.fxml"));
 			
 		}else {
+			Main.selectedCliente = null;
 			Main.selectedProveedor = (Proveedor)loginTableView.getSelectionModel().getSelectedItem();
 			root = FXMLLoader.load(getClass().getResource("../proveedor_fxml/ProveedorView.fxml"));
 			

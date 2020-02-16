@@ -2,18 +2,25 @@ package tools;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
+import clienteControllers.PedidoClienteViewController;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.converter.FloatStringConverter;
 import performers.*;
+import proveedorControllers.PedidoProveedorViewController;
 
 public class AuxStageController implements Initializable {
 
@@ -115,23 +122,23 @@ public class AuxStageController implements Initializable {
 				auxTableView.getColumns().setAll(nombreProducto, ventaPorPesoProducto, precioProducto, stockProducto,
 						descuentoProducto, proveedorProducto);
 			}else if (dataArrayList.get(0).getClass().equals(ProductoAux.class)) {
-				TableColumn<Producto, String> nombreProducto = new TableColumn<Producto, String>("nombre");
-				nombreProducto.setCellValueFactory(new PropertyValueFactory<Producto, String>("nombre"));
+				TableColumn<ProductoAux, String> nombreProductoAux = new TableColumn<ProductoAux, String>("nombre");
+				nombreProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, String>("nombre"));
 				
-				TableColumn<Producto, Float> cantidadProducto = new TableColumn<Producto, Float>("cantidad");
-				cantidadProducto.setCellValueFactory(new PropertyValueFactory<Producto, Float>("cantidad"));
+				TableColumn<ProductoAux, Float> cantidadProductoAux = new TableColumn<ProductoAux, Float>("cantidad");
+				cantidadProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, Float>("cantidad"));
 
-				TableColumn<Producto, Float> precioProducto = new TableColumn<Producto, Float>("precio");
-				precioProducto.setCellValueFactory(new PropertyValueFactory<Producto, Float>("precio"));
+				TableColumn<ProductoAux, Float> precioProductoAux = new TableColumn<ProductoAux, Float>("precio");
+				precioProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, Float>("precio"));
+				
+				TableColumn<ProductoAux, Float> descuentoProductoAux = new TableColumn<ProductoAux, Float>("descuento");
+				descuentoProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, Float>("descuento"));
 
-				TableColumn<Producto, Float> descuentoProducto = new TableColumn<Producto, Float>("descuento");
-				descuentoProducto.setCellValueFactory(new PropertyValueFactory<Producto, Float>("descuento"));
+				TableColumn<ProductoAux, String> totalProductoAux = new TableColumn<ProductoAux, String>("total");
+				totalProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, String>("total"));
 
-				TableColumn<Producto, String> proveedorProducto = new TableColumn<Producto, String>("total");
-				proveedorProducto.setCellValueFactory(new PropertyValueFactory<Producto, String>("total"));
-
-				auxTableView.getColumns().setAll(nombreProducto, precioProducto, cantidadProducto,
-						descuentoProducto, proveedorProducto);
+				auxTableView.getColumns().setAll(nombreProductoAux, precioProductoAux, cantidadProductoAux,
+						descuentoProductoAux, totalProductoAux);
 			}
 
 			auxTableView.setItems(FXCollections.observableArrayList(dataArrayList));
@@ -140,6 +147,7 @@ public class AuxStageController implements Initializable {
 
 	public void closeAction() {
 		stage.close();
+		
 	}
 
 }

@@ -8,7 +8,11 @@
 <AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tools.AuxStageController">
    <children>
       <ListView fx:id="auxListView" prefHeight="495.0" prefWidth="700.0" />
-      <Button layoutX="238.0" layoutY="523.0" mnemonicParsing="false" onAction="#closeAction" prefHeight="45.0" prefWidth="225.0" text="Cerrar" />
       <TableView fx:id="auxTableView" prefHeight="495.0" prefWidth="700.0" />
+      <HBox alignment="CENTER" layoutY="495.0" prefHeight="105.0" prefWidth="700.0" spacing="40.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#closeAction" prefHeight="45.0" prefWidth="225.0" text="Cerrar" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

@@ -10,13 +10,12 @@ import javafx.stage.Stage;
 
 public class AuxStage<T> extends Stage {
 	
-	public ArrayList<T> dataArrayList;	
-	
+	private ArrayList<T> dataArrayList;	
+		
 	public AuxStage(ArrayList<T> data) {
 		this.dataArrayList = data;
 		Parent root = null;
 		try {
-			
 			root = FXMLLoader.load(getClass().getResource("../others_fxml/AuxStage.fxml"));
 		} catch (IOException e) {
 			e.printStackTrace();
