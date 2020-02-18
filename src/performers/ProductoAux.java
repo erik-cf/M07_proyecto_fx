@@ -1,20 +1,22 @@
 package performers;
 
+import tools.UITools;
+
 public class ProductoAux {
 
 	private String nombre;
-	private float cantidad;
-	private float total;
-	private float precio;
-	private float descuento;
+	private double cantidad;
+	private double total;
+	private double precio;
+	private double descuento;
 
-	public ProductoAux(String nombre, float cantidad, float total, float precio, float descuento) {
+	public ProductoAux(String nombre, double cantidad, double total, double precio, double descuento) {
 		super();
 		this.nombre = nombre;
 		this.cantidad = cantidad;
-		this.total = total;
-		this.precio = precio;
-		this.descuento = descuento;
+		this.total = UITools.truncateDouble(total);
+		this.precio = UITools.truncateDouble(precio);
+		this.descuento = UITools.truncateDouble(descuento);
 	}
 
 	public String getNombre() {
@@ -25,36 +27,36 @@ public class ProductoAux {
 		this.nombre = nombre;
 	}
 
-	public float getCantidad() {
+	public double getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(float cantidad) {
+	public void setCantidad(double cantidad) {
 		this.cantidad = cantidad;
 	}
 
-	public float getTotal() {
-		return total;
+	public double getTotal() {
+		return UITools.truncateDouble(total);
 	}
 
-	public void setTotal(float total) {
-		this.total = total;
+	public void setTotal(double total) {
+		this.total = UITools.truncateDouble(total);
 	}
 
-	public float getPrecio() {
-		return precio;
+	public double getPrecio() {
+		return UITools.truncateDouble(precio);
 	}
 
-	public void setPrecio(float precio) {
-		this.precio = precio;
+	public void setPrecio(double precio) {
+		this.precio = UITools.truncateDouble(precio);
 	}
 
-	public float getDescuento() {
-		return descuento;
+	public double getDescuento() {
+		return UITools.truncateDouble(descuento);
 	}
 
-	public void setDescuento(float descuento) {
-		this.descuento = descuento;
+	public void setDescuento(double descuento) {
+		this.descuento = UITools.truncateDouble(descuento);
 	}
 	
 	

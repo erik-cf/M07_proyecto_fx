@@ -56,9 +56,9 @@ public class Initializer extends ConnectionManager implements ConnectionInterfac
 			prod.setNombre(rs.getString("nombre"));
 			prod.setDescripcion(rs.getString("descripcion"));
 			prod.setVentaPorPeso(rs.getBoolean("ventaPorPeso"));
-			prod.setPrecio(rs.getFloat("precio"));
-			prod.setStock(rs.getFloat("stock"));
-			prod.setDescuento(rs.getFloat("descuento"));
+			prod.setPrecio(rs.getDouble("precio"));
+			prod.setStock(rs.getDouble("stock"));
+			prod.setDescuento(rs.getDouble("descuento"));
 			provProd = SearchTools.getProveedorById(rs.getInt("id_proveedor"));
 			prod.setProveedor(provProd);
 			provProd.getProductos().add(prod);
@@ -72,8 +72,8 @@ public class Initializer extends ConnectionManager implements ConnectionInterfac
 			ped.setFecha(rs.getDate("fecha"));
 			ped.setProveedor(SearchTools.getProveedorById(rs.getInt("id_proveedor")));
 			ped.setCliente(SearchTools.getClienteById(rs.getInt("id_cliente")));
-			ped.setImporteBruto(rs.getFloat("importe_bruto"));
-			ped.setImporteNeto(rs.getFloat("importe_neto"));
+			ped.setImporteBruto(rs.getDouble("importe_bruto"));
+			ped.setImporteNeto(rs.getDouble("importe_neto"));
 			Main.pedidos.add(ped);
 		}
 
@@ -84,8 +84,8 @@ public class Initializer extends ConnectionManager implements ConnectionInterfac
 			fac.setFecha(rs.getDate("fecha"));
 			fac.setProveedor(SearchTools.getProveedorById(rs.getInt("id_proveedor")));
 			fac.setCliente(SearchTools.getClienteById(rs.getInt("id_cliente")));
-			fac.setImporteBruto(rs.getFloat("importe_bruto"));
-			fac.setImporteNeto(rs.getFloat("importe_neto"));
+			fac.setImporteBruto(rs.getDouble("importe_bruto"));
+			fac.setImporteNeto(rs.getDouble("importe_neto"));
 			Main.facturas.add(fac);
 		}
 
@@ -114,7 +114,7 @@ public class Initializer extends ConnectionManager implements ConnectionInterfac
 			pr = SearchTools.getProductoById(rs.getInt("id_producto"));
 			pe = SearchTools.getPedidoById(rs.getInt("id_pedido"));
 			if (pr != null && pe != null) {
-				pe.getProductos().put(pr, rs.getFloat("cantidad"));
+				pe.getProductos().put(pr, rs.getDouble("cantidad"));
 			}
 			pe.setCountProductos(pe.getProductos().size());
 		}
@@ -124,7 +124,7 @@ public class Initializer extends ConnectionManager implements ConnectionInterfac
 			pr = SearchTools.getProductoById(rs.getInt("id_producto"));
 			f = SearchTools.getFacturaById(rs.getInt("id_factura"));
 			if (pr != null && f != null) {
-				f.getProductos().put(pr, rs.getFloat("cantidad"));
+				f.getProductos().put(pr, rs.getDouble("cantidad"));
 			}
 			f.setCountProductos(f.getProductos().size());
 		}

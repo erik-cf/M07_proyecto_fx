@@ -8,9 +8,9 @@ public class Producto {
 	private String nombre;
 	private String descripcion;
 	private boolean ventaPorPeso;
-	private float precio;
-	private float stock;
-	private float descuento;
+	private double precio;
+	private double stock;
+	private double descuento;
 	private Proveedor proveedor;
 	private ArrayList<Pedido> pedidos;
 	private ArrayList<Factura> facturas;
@@ -20,7 +20,7 @@ public class Producto {
 		facturas = new ArrayList<Factura>();
 	}
 
-	public Producto(int id, String nombre, String descripcion, boolean ventaPorPeso, float precio, float stock, float descuento, Proveedor proveedor, ArrayList<Pedido> pedidos, ArrayList<Factura> facturas) {
+	public Producto(int id, String nombre, String descripcion, boolean ventaPorPeso, double precio, double stock, double descuento, Proveedor proveedor, ArrayList<Pedido> pedidos, ArrayList<Factura> facturas) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -43,7 +43,7 @@ public class Producto {
 		}
 	}
 	
-	public Producto(int id, String nombre, String descripcion, boolean ventaPorPeso, float precio, float stock, float descuento, Proveedor proveedor) {
+	public Producto(int id, String nombre, String descripcion, boolean ventaPorPeso, double precio, double stock, double descuento, Proveedor proveedor) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -87,27 +87,27 @@ public class Producto {
 		this.ventaPorPeso = ventaPorPeso;
 	}
 
-	public float getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(float precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 	
-	public float getStock() {
+	public double getStock() {
 		return stock;
 	}
 	
-	public void setStock(float stock) {
+	public void setStock(double stock) {
 		this.stock = stock;
 	}
 	
-	public float getDescuento() {
+	public double getDescuento() {
 		return this.descuento;
 	}
 	
-	public void setDescuento(float descuento) {
+	public void setDescuento(double descuento) {
 		this.descuento = descuento;
 	}
 	

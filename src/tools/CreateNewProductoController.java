@@ -62,15 +62,15 @@ public class CreateNewProductoController implements Initializable {
 			return;
 		}
 
-		if (!UITools.checkParseFloat(precioTextField.getText().replace(',', '.')) || !UITools.checkParseFloat(stockTextField.getText().replace(',', '.'))
-				|| !UITools.checkParseFloat(descuentoTextField.getText().replace(',', '.'))) {
+		if (!UITools.checkParseDouble(precioTextField.getText().replace(',', '.')) || !UITools.checkParseDouble(stockTextField.getText().replace(',', '.'))
+				|| !UITools.checkParseDouble(descuentoTextField.getText().replace(',', '.'))) {
 			new Alert(AlertType.ERROR, "¡Error! ¡Debes introducir un valor numérico en precio, stock y descuento!",
 					ButtonType.OK).show();
 			return;
 		}
 
-		if (Float.parseFloat(descuentoTextField.getText().replace(',', '.')) > 100
-				|| Float.parseFloat(descuentoTextField.getText().replace(',', '.')) < 0) {
+		if (Double.parseDouble(descuentoTextField.getText().replace(',', '.')) > 100
+				|| Double.parseDouble(descuentoTextField.getText().replace(',', '.')) < 0) {
 			new Alert(AlertType.ERROR, "¡Error! ¡El descuento no puede ser mayor a 100 o negativo!", ButtonType.OK)
 					.show();
 			return;
@@ -84,9 +84,9 @@ public class CreateNewProductoController implements Initializable {
 		} else {
 			p.setVentaPorPeso(false);
 		}
-		p.setPrecio(Float.parseFloat(precioTextField.getText().replace(',', '.')));
-		p.setStock(Float.parseFloat(stockTextField.getText().replace(',', '.')));
-		p.setDescuento(Float.parseFloat(descuentoTextField.getText().replace(',', '.')));
+		p.setPrecio(Double.parseDouble(precioTextField.getText().replace(',', '.')));
+		p.setStock(Double.parseDouble(stockTextField.getText().replace(',', '.')));
+		p.setDescuento(Double.parseDouble(descuentoTextField.getText().replace(',', '.')));
 		p.setProveedor(Main.selectedProveedor);
 		Main.selectedProveedor.getProductos().add(p);
 		try {

@@ -44,11 +44,11 @@ public class PedidoClienteViewController implements Initializable {
 		TableColumn<Pedido, Integer> productosPedido = new TableColumn<Pedido, Integer>("Num. Productos");
 		productosPedido.setCellValueFactory(new PropertyValueFactory<Pedido, Integer>("countProductos"));
 
-		TableColumn<Pedido, Float> importeBrutoPedidos = new TableColumn<Pedido, Float>("Importe Bruto");
-		importeBrutoPedidos.setCellValueFactory(new PropertyValueFactory<Pedido, Float>("importeBruto"));
+		TableColumn<Pedido, Double> importeBrutoPedidos = new TableColumn<Pedido, Double>("Importe Bruto");
+		importeBrutoPedidos.setCellValueFactory(new PropertyValueFactory<Pedido, Double>("importeBruto"));
 
-		TableColumn<Pedido, Float> importeNetoPedidos = new TableColumn<Pedido, Float>("Importe Neto");
-		importeNetoPedidos.setCellValueFactory(new PropertyValueFactory<Pedido, Float>("importeNeto"));
+		TableColumn<Pedido, Double> importeNetoPedidos = new TableColumn<Pedido, Double>("Importe Neto");
+		importeNetoPedidos.setCellValueFactory(new PropertyValueFactory<Pedido, Double>("importeNeto"));
 
 		pedidoTableView.getColumns().setAll(idPedido, proveedorPedido, clientePedido, productosPedido, importeBrutoPedidos, importeNetoPedidos);
 

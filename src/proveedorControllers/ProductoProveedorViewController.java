@@ -36,14 +36,14 @@ public class ProductoProveedorViewController implements Initializable {
 		TableColumn<Producto, Boolean> ventaPorPesoProducto = new TableColumn<Producto, Boolean>("¿Venta por peso?");
 		ventaPorPesoProducto.setCellValueFactory(new PropertyValueFactory<Producto, Boolean>("ventaPorPeso"));
 
-		TableColumn<Producto, Float> precioProducto = new TableColumn<Producto, Float>("precio");
-		precioProducto.setCellValueFactory(new PropertyValueFactory<Producto, Float>("precio"));
+		TableColumn<Producto, Double> precioProducto = new TableColumn<Producto, Double>("precio");
+		precioProducto.setCellValueFactory(new PropertyValueFactory<Producto, Double>("precio"));
 
-		TableColumn<Producto, Float> stockProducto = new TableColumn<Producto, Float>("stock");
-		stockProducto.setCellValueFactory(new PropertyValueFactory<Producto, Float>("stock"));
+		TableColumn<Producto, Double> stockProducto = new TableColumn<Producto, Double>("stock");
+		stockProducto.setCellValueFactory(new PropertyValueFactory<Producto, Double>("stock"));
 
-		TableColumn<Producto, Float> descuentoProducto = new TableColumn<Producto, Float>("descuento");
-		descuentoProducto.setCellValueFactory(new PropertyValueFactory<Producto, Float>("descuento"));
+		TableColumn<Producto, Double> descuentoProducto = new TableColumn<Producto, Double>("descuento");
+		descuentoProducto.setCellValueFactory(new PropertyValueFactory<Producto, Double>("descuento"));
 
 		productosData = FXCollections.observableList(Main.selectedProveedor.getProductos());
 		productosTableView.getColumns().addAll(nombreProducto, ventaPorPesoProducto, precioProducto, stockProducto,

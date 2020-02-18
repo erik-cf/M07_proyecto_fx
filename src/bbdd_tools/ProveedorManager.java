@@ -38,8 +38,8 @@ public class ProveedorManager extends ConnectionManager {
 		PreparedStatement pstmnt = getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 		pstmnt.setInt(1, p.getCliente().getId());
 		pstmnt.setInt(2, p.getProveedor().getId());
-		pstmnt.setFloat(3, p.getImporteBruto());
-		pstmnt.setFloat(4, p.getImporteNeto());
+		pstmnt.setDouble(3, p.getImporteBruto());
+		pstmnt.setDouble(4, p.getImporteNeto());
 		pstmnt.setDate(5, p.getFecha());
 		pstmnt.execute();
 		ResultSet rs = pstmnt.getGeneratedKeys();
@@ -59,7 +59,7 @@ public class ProveedorManager extends ConnectionManager {
 			pstmnt = getConnection().prepareStatement(sql);
 			pstmnt.setInt(1, p.getId());
 			pstmnt.setInt(2, pr.getId());
-			pstmnt.setFloat(3, p.getProductos().get(pr));
+			pstmnt.setDouble(3, p.getProductos().get(pr));
 			pstmnt.execute();
 		}
 	}
@@ -77,8 +77,8 @@ public class ProveedorManager extends ConnectionManager {
 		pstmnt.setDate(1, p.getFecha());
 		pstmnt.setInt(2, p.getProveedor().getId());
 		pstmnt.setInt(3, p.getCliente().getId());
-		pstmnt.setFloat(4, p.getImporteBruto());
-		pstmnt.setFloat(5, p.getImporteNeto());
+		pstmnt.setDouble(4, p.getImporteBruto());
+		pstmnt.setDouble(5, p.getImporteNeto());
 		pstmnt.execute();
 		ResultSet rs = pstmnt.getGeneratedKeys();
 		if (rs.next()) {
@@ -98,7 +98,7 @@ public class ProveedorManager extends ConnectionManager {
 			pstmnt = getConnection().prepareStatement(sql);
 			pstmnt.setInt(1, f.getId());
 			pstmnt.setInt(2, pr.getId());
-			pstmnt.setFloat(3, f.getProductos().get(pr));
+			pstmnt.setDouble(3, f.getProductos().get(pr));
 			pstmnt.execute();
 		}
 	}
@@ -147,9 +147,9 @@ public class ProveedorManager extends ConnectionManager {
 		pstmnt.setString(1, p.getNombre());
 		pstmnt.setString(2, p.getDescripcion());
 		pstmnt.setBoolean(3, p.isVentaPorPeso());
-		pstmnt.setFloat(4, p.getPrecio());
-		pstmnt.setFloat(5, p.getStock());
-		pstmnt.setFloat(6, p.getDescuento());
+		pstmnt.setDouble(4, p.getPrecio());
+		pstmnt.setDouble(5, p.getStock());
+		pstmnt.setDouble(6, p.getDescuento());
 		pstmnt.setInt(7, p.getProveedor().getId());
 		pstmnt.execute();
 		ResultSet rs = pstmnt.getGeneratedKeys();

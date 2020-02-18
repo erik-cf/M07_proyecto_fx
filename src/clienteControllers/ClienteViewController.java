@@ -60,6 +60,7 @@ public class ClienteViewController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		((BorderPane)Main.mainStaticStage.getScene().getRoot()).setOnContextMenuRequested(null);
+		contentPaneStatic = contentPane;
 		try {
 			loaderPane = FXMLLoader.load(getClass().getResource("../cliente_fxml/ProveedorClienteView.fxml"));
 			contentPane.getChildren().add(loaderPane);
@@ -144,7 +145,6 @@ public class ClienteViewController implements Initializable {
 			break;
 		}
 		loaderPaneStatic = loaderPane;
-		contentPaneStatic = contentPane;
 		contentPane.getChildren().clear();
 		contentPane.getChildren().add(loaderPane);
 	}

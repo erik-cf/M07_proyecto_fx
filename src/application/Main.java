@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import performers.*;
+import tools.UITools;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -46,8 +47,8 @@ public class Main extends Application {
 			Initializer.fillMainArrays();
 		} catch (Exception e) {
 			String error = "No se ha podido conectar a la base de datos!\n\n"
-					+ "Debes importar los datos de la aplicación que se encuentran en el archivo proyecto_fxSQL.sql a tu servidor.\n\n"
-					+ "Además, debes configurar la conexión en la interfaz que se encuentra en bbdd_tools.ConnectionInterface.java\n"
+					+ "Asegurate de importar los datos de la aplicación que se encuentran en el archivo proyecto_fx_data.sql a tu servidor.\n\n"
+					+ "Además, asegurate de configurar la conexión en la interfaz que se encuentra en bbdd_tools.ConnectionInterface.java\n"
 					+ "(Revisar constantes USER y PASSWORD)";
 			Alert falloConexionMySQL = new Alert(AlertType.ERROR, error, ButtonType.OK);
 			falloConexionMySQL.setTitle("¡Error de conexión!");

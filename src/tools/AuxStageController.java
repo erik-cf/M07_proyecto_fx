@@ -66,11 +66,11 @@ public class AuxStageController implements Initializable {
 				TableColumn<Pedido, Integer> productosPedido = new TableColumn<Pedido, Integer>("Num. Productos");
 				productosPedido.setCellValueFactory(new PropertyValueFactory<Pedido, Integer>("countProductos"));
 
-				TableColumn<Pedido, Float> importeBrutoPedidos = new TableColumn<Pedido, Float>("Importe Bruto");
-				importeBrutoPedidos.setCellValueFactory(new PropertyValueFactory<Pedido, Float>("importeBruto"));
+				TableColumn<Pedido, Double> importeBrutoPedidos = new TableColumn<Pedido, Double>("Importe Bruto");
+				importeBrutoPedidos.setCellValueFactory(new PropertyValueFactory<Pedido, Double>("importeBruto"));
 
-				TableColumn<Pedido, Float> importeNetoPedidos = new TableColumn<Pedido, Float>("Importe Neto");
-				importeNetoPedidos.setCellValueFactory(new PropertyValueFactory<Pedido, Float>("importeNeto"));
+				TableColumn<Pedido, Double> importeNetoPedidos = new TableColumn<Pedido, Double>("Importe Neto");
+				importeNetoPedidos.setCellValueFactory(new PropertyValueFactory<Pedido, Double>("importeNeto"));
 
 				auxTableView.getColumns().setAll(idPedido, productosPedido, importeBrutoPedidos, importeNetoPedidos);
 			} else if (dataArrayList.get(0).getClass().equals(Factura.class)) {
@@ -100,14 +100,14 @@ public class AuxStageController implements Initializable {
 						"¿Venta por peso?");
 				ventaPorPesoProducto.setCellValueFactory(new PropertyValueFactory<Producto, Boolean>("ventaPorPeso"));
 
-				TableColumn<Producto, Float> precioProducto = new TableColumn<Producto, Float>("precio");
-				precioProducto.setCellValueFactory(new PropertyValueFactory<Producto, Float>("precio"));
+				TableColumn<Producto, Double> precioProducto = new TableColumn<Producto, Double>("precio");
+				precioProducto.setCellValueFactory(new PropertyValueFactory<Producto, Double>("precio"));
 
-				TableColumn<Producto, Float> stockProducto = new TableColumn<Producto, Float>("stock");
-				stockProducto.setCellValueFactory(new PropertyValueFactory<Producto, Float>("stock"));
+				TableColumn<Producto, Double> stockProducto = new TableColumn<Producto, Double>("stock");
+				stockProducto.setCellValueFactory(new PropertyValueFactory<Producto, Double>("stock"));
 
-				TableColumn<Producto, Float> descuentoProducto = new TableColumn<Producto, Float>("descuento");
-				descuentoProducto.setCellValueFactory(new PropertyValueFactory<Producto, Float>("descuento"));
+				TableColumn<Producto, Double> descuentoProducto = new TableColumn<Producto, Double>("descuento");
+				descuentoProducto.setCellValueFactory(new PropertyValueFactory<Producto, Double>("descuento"));
 
 				TableColumn<Producto, String> proveedorProducto = new TableColumn<Producto, String>("proveedor");
 				proveedorProducto.setCellValueFactory(new PropertyValueFactory<Producto, String>("proveedor"));
@@ -118,14 +118,14 @@ public class AuxStageController implements Initializable {
 				TableColumn<ProductoAux, String> nombreProductoAux = new TableColumn<ProductoAux, String>("nombre");
 				nombreProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, String>("nombre"));
 				
-				TableColumn<ProductoAux, Float> cantidadProductoAux = new TableColumn<ProductoAux, Float>("cantidad");
-				cantidadProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, Float>("cantidad"));
+				TableColumn<ProductoAux, Double> cantidadProductoAux = new TableColumn<ProductoAux, Double>("cantidad");
+				cantidadProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, Double>("cantidad"));
 
-				TableColumn<ProductoAux, Float> precioProductoAux = new TableColumn<ProductoAux, Float>("precio");
-				precioProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, Float>("precio"));
+				TableColumn<ProductoAux, Double> precioProductoAux = new TableColumn<ProductoAux, Double>("precio");
+				precioProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, Double>("precio"));
 				
-				TableColumn<ProductoAux, Float> descuentoProductoAux = new TableColumn<ProductoAux, Float>("descuento");
-				descuentoProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, Float>("descuento"));
+				TableColumn<ProductoAux, Double> descuentoProductoAux = new TableColumn<ProductoAux, Double>("descuento");
+				descuentoProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, Double>("descuento"));
 
 				TableColumn<ProductoAux, String> totalProductoAux = new TableColumn<ProductoAux, String>("total");
 				totalProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, String>("total"));

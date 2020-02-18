@@ -1,5 +1,6 @@
 package tools;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import javafx.collections.ObservableList;
@@ -57,8 +58,8 @@ public class UITools {
 	
 	public static ArrayList<ProductoAux> getListProductoAux(Pedido p){
 		ProductoAux aux;
-		float precio;
-		float cantidad;
+		double precio;
+		double cantidad;
 		ArrayList<ProductoAux> aLProductoAux = new ArrayList<ProductoAux>();
 		
 		for(Producto o : p.getProductos().keySet()) {
@@ -73,13 +74,13 @@ public class UITools {
 	
 	public static ArrayList<ProductoAux> getListProductoAux(Factura f){
 		ProductoAux aux;
-		float precio;
-		float cantidad;
+		double precio;
+		double cantidad;
 		ArrayList<ProductoAux> aLProductoAux = new ArrayList<ProductoAux>();
 		
 		for(Producto o : f.getProductos().keySet()) {
 			cantidad = f.getProductos().get(o);
-			precio = o.getPrecio() - (o.getPrecio() * (o.getDescuento() / 100));
+			precio = o.getPrecio() - (o.getPrecio() * (o.getDescuento() / 100d));
 			aux = new ProductoAux(o.getNombre(), cantidad, cantidad * precio, o.getPrecio(), o.getDescuento());
 			aLProductoAux.add(aux);
 		}
@@ -96,21 +97,25 @@ public class UITools {
 		}
 	}
 	
-	public static boolean checkParseFloat(String text) {
+	public static boolean checkParseDouble(String text) {
 		try {
-			Float.parseFloat(text);
+			Double.parseDouble(text);
 			return true;
 		}catch(NumberFormatException nfe) {
 			return false;
 		}
 	}
 	
-	public static float recalculate(TableView<ProductoAux> tv) {
-		float total = 0;
+	public static double recalculate(TableView<ProductoAux> tv) {
+		double total = 0;
 		for(ProductoAux p : tv.getItems()) {
 			total = total + (p.getTotal());
 		}
-		return total;
+		return truncateDouble(total);
+	}
+	
+	public static double truncateDouble(double num) {
+		return Double.parseDouble(new DecimalFormat("#.##").format(num).replace(',', '.'));
 	}
 	
 }

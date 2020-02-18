@@ -54,8 +54,8 @@ public class CreateNewPedidoController implements Initializable {
 
 	Proveedor proveedor;
 	
-	float brutoTotal;
-	float netoTotal;
+	double brutoTotal;
+	double netoTotal;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -76,14 +76,14 @@ public class CreateNewPedidoController implements Initializable {
 		TableColumn<ProductoAux, String> nombreProductoAux = new TableColumn<ProductoAux, String>("nombre");
 		nombreProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, String>("nombre"));
 
-		TableColumn<ProductoAux, Float> cantidadProductoAux = new TableColumn<ProductoAux, Float>("cantidad");
-		cantidadProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, Float>("cantidad"));
+		TableColumn<ProductoAux, Double> cantidadProductoAux = new TableColumn<ProductoAux, Double>("cantidad");
+		cantidadProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, Double>("cantidad"));
 
-		TableColumn<ProductoAux, Float> precioProductoAux = new TableColumn<ProductoAux, Float>("precio");
-		precioProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, Float>("precio"));
+		TableColumn<ProductoAux, Double> precioProductoAux = new TableColumn<ProductoAux, Double>("precio");
+		precioProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, Double>("precio"));
 
-		TableColumn<ProductoAux, Float> descuentoProductoAux = new TableColumn<ProductoAux, Float>("descuento");
-		descuentoProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, Float>("descuento"));
+		TableColumn<ProductoAux, Double> descuentoProductoAux = new TableColumn<ProductoAux, Double>("descuento");
+		descuentoProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, Double>("descuento"));
 
 		TableColumn<ProductoAux, String> proveedorProductoAux = new TableColumn<ProductoAux, String>("total");
 		proveedorProductoAux.setCellValueFactory(new PropertyValueFactory<ProductoAux, String>("total"));
@@ -119,18 +119,18 @@ public class CreateNewPedidoController implements Initializable {
 		}
 
 		if (productToAdd.isVentaPorPeso()
-				&& !UITools.checkParseFloat(quantityTextField.getText().replace(',', '.'))) {
+				&& !UITools.checkParseDouble(quantityTextField.getText().replace(',', '.'))) {
 			new Alert(AlertType.ERROR, "¡Error! ¡Debes introducir un número (decimales aceptados)!", ButtonType.OK)
 					.show();
 			return;
 		}
 
-		ProductoAux pAux = AuxTools.createProductoAux(productToAdd, Float.parseFloat(quantityTextField.getText().replace(',', '.')));
+		ProductoAux pAux = AuxTools.createProductoAux(productToAdd, Double.parseDouble(quantityTextField.getText().replace(',', '.')));
 
 		pedidoTableView.getItems().add(pAux);
 
-		brutoTotal = Float.parseFloat(brutoLabel.getText()) + pAux.getTotal();
-		netoTotal = brutoTotal + (brutoTotal * 0.1f);
+		brutoTotal = UITools.truncateDouble(Double.parseDouble(brutoLabel.getText()) + pAux.getTotal());
+		netoTotal = UITools.truncateDouble(brutoTotal + (brutoTotal * 0.1d));
 
 		brutoLabel.setText(String.valueOf(brutoTotal));
 
@@ -150,7 +150,7 @@ public class CreateNewPedidoController implements Initializable {
 			productChoiceBox.getItems().add(SearchTools.getProductoByAux(itemDeleted));
 
 			brutoTotal = UITools.recalculate(pedidoTableView);
-			netoTotal = brutoTotal + (brutoTotal * 0.1f);
+			netoTotal = UITools.truncateDouble(brutoTotal + (brutoTotal * 0.1f));
 			brutoLabel.setText(String.valueOf(brutoTotal));
 			netoLabel.setText(String.valueOf(netoTotal));
 		}

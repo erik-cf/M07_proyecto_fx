@@ -36,11 +36,11 @@ public class FacturaClienteViewController implements Initializable {
 		TableColumn<Factura, Integer> productosPedido = new TableColumn<Factura, Integer>("Num. Productos");
 		productosPedido.setCellValueFactory(new PropertyValueFactory<Factura, Integer>("countProductos"));
 
-		TableColumn<Factura, Float> importeBrutoPedidos = new TableColumn<Factura, Float>("Importe Bruto");
-		importeBrutoPedidos.setCellValueFactory(new PropertyValueFactory<Factura, Float>("importeBruto"));
+		TableColumn<Factura, Double> importeBrutoPedidos = new TableColumn<Factura, Double>("Importe Bruto");
+		importeBrutoPedidos.setCellValueFactory(new PropertyValueFactory<Factura, Double>("importeBruto"));
 
-		TableColumn<Factura, Float> importeNetoPedidos = new TableColumn<Factura, Float>("Importe Neto");
-		importeNetoPedidos.setCellValueFactory(new PropertyValueFactory<Factura, Float>("importeNeto"));
+		TableColumn<Factura, Double> importeNetoPedidos = new TableColumn<Factura, Double>("Importe Neto");
+		importeNetoPedidos.setCellValueFactory(new PropertyValueFactory<Factura, Double>("importeNeto"));
 
 		facturaTableView.getColumns().setAll(idPedido, productosPedido, importeBrutoPedidos, importeNetoPedidos);
 

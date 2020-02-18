@@ -3,29 +3,31 @@ package performers;
 import java.sql.Date;
 import java.util.HashMap;
 
+import tools.UITools;
+
 public class Factura {
 	private int id;
 	private Date fecha;
-	private HashMap<Producto, Float> productos;
+	private HashMap<Producto, Double> productos;
 	private int countProductos;
 	private Proveedor proveedor;
 	private Cliente cliente;
-	private float importeBruto;
-	private float importeNeto;
+	private double importeBruto;
+	private double importeNeto;
 
 	public Factura() {
-		productos = new HashMap<Producto, Float>();
+		productos = new HashMap<Producto, Double>();
 	}
 
-	public Factura(int id, Date fecha, HashMap<Producto, Float> productos, Proveedor proveedor, Cliente cliente,
-			float importeBruto, float importeNeto) {
+	public Factura(int id, Date fecha, HashMap<Producto, Double> productos, Proveedor proveedor, Cliente cliente,
+			double importeBruto, double importeNeto) {
 		super();
 		this.id = id;
 		this.fecha = fecha;
 		if (productos != null) {
 			this.productos = productos;
 		} else {
-			this.productos = new HashMap<Producto, Float>();
+			this.productos = new HashMap<Producto, Double>();
 		}
 		this.countProductos = productos.size();
 		this.proveedor = proveedor;
@@ -50,11 +52,11 @@ public class Factura {
 		this.fecha = fecha;
 	}
 
-	public HashMap<Producto, Float> getProductos() {
+	public HashMap<Producto, Double> getProductos() {
 		return productos;
 	}
 
-	public void setProductos(HashMap<Producto, Float> productos) {
+	public void setProductos(HashMap<Producto, Double> productos) {
 		this.productos = productos;
 		this.countProductos = productos.size();
 	}
@@ -83,20 +85,20 @@ public class Factura {
 		this.cliente = cliente;
 	}
 
-	public float getImporteBruto() {
-		return importeBruto;
+	public double getImporteBruto() {
+		return UITools.truncateDouble(importeBruto);
 	}
 
-	public void setImporteBruto(float importeBruto) {
-		this.importeBruto = importeBruto;
+	public void setImporteBruto(double importeBruto) {
+		this.importeBruto = UITools.truncateDouble(importeBruto);
 	}
 
-	public float getImporteNeto() {
-		return importeNeto;
+	public double getImporteNeto() {
+		return UITools.truncateDouble(importeNeto);
 	}
 
-	public void setImporteNeto(float importeNeto) {
-		this.importeNeto = importeNeto;
+	public void setImporteNeto(double importeNeto) {
+		this.importeNeto = UITools.truncateDouble(importeNeto);
 	}
 
 	@Override
