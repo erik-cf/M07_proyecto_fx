@@ -6,12 +6,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="728.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="728.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteControllers.InformeClienteViewController">
    <children>
-      <ListView layoutX="20.0" layoutY="60.0" prefHeight="544.0" prefWidth="645.0" />
+      <ListView fx:id="informeListView" layoutX="20.0" layoutY="60.0" prefHeight="544.0" prefWidth="645.0" />
       <HBox alignment="CENTER" layoutY="604.0" prefHeight="124.0" prefWidth="685.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="225.0" text="Mostrar informe" />
+            <Button mnemonicParsing="false" onAction="#showReport" prefHeight="45.0" prefWidth="225.0" text="Mostrar informe" />
          </children>
       </HBox>
       <Label layoutX="20.0" layoutY="14.0" text="Informes">

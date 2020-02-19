@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TotalFacturadoMeses" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cf345073-c391-46b9-8096-1e54c2782ae3">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="proyecto_fx_sql"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#A1A1A1">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#E3E3E3"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="Data_facturas" uuid="ab77fba2-a62f-4f37-94af-f99e67e6792e">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="proyecto_fx_sql"/>
+		<parameter name="id_cliente" class="java.lang.Integer">
+			<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+		</parameter>
+		<queryString language="SQL">
+			<![CDATA[SELECT TRUNCATE(sum( importe_bruto), 2) AS "Gastado Bruto",
+	TRUNCATE(sum( importe_neto), 2) AS "Gastado Neto",
+	-- str_to_date( fecha,'%m') AS "Mes"
+	CONCAT(EXTRACT(MONTH FROM fecha), '/', EXTRACT(YEAR FROM fecha)) AS "Mes/Año"
+FROM proyecto_fx.factura
+WHERE id_cliente = $P{id_cliente}
+GROUP BY 3]]>
+		</queryString>
+		<field name="Gastado Bruto" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.label" value="Gastado Bruto"/>
+		</field>
+		<field name="Gastado Neto" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.label" value="Gastado Neto"/>
+		</field>
+		<field name="Mes/Año" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Mes/Año"/>
+		</field>
+	</subDataset>
+	<parameter name="id_cliente" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT nombre
+FROM proyecto_fx.cliente
+WHERE 
+	 proyecto_fx.cliente.id = $P{id_cliente}]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="10" width="520" height="63" uuid="95fd142d-ca84-4f9c-b9e3-8f4c046c8557"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL GASTADO POR MESES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="44" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="0" width="520" height="44" uuid="afca1903-706d-4ead-a3dc-aa7f34075b6d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CLIENTE: " + $F{nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="270" splitType="Stretch">
+			<componentElement>
+				<reportElement x="40" y="30" width="482" height="240" uuid="e2d4cf1d-34d4-43a3-ba52-bb186b3a6fa5">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Data_facturas" uuid="3f3b338d-853f-41aa-a774-f2306f481e51">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="140" uuid="c8db290e-7fce-435d-bfc0-9c94fa2c84b5">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="140" height="30" uuid="fab19e13-3557-48bf-aeec-91ef5326497c"/>
+								<text><![CDATA[Gastado Bruto]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="140" height="30" uuid="ee09ca05-da38-4111-9522-1b841620ebc2"/>
+								<textFieldExpression><![CDATA[$F{Gastado Bruto}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="150" uuid="af342b09-7345-4775-bada-963073db4cf6">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="150" height="30" uuid="c0265463-8987-4bf5-aea3-b3c4bc49691a"/>
+								<text><![CDATA[Gastado Neto]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="150" height="30" uuid="0fb75869-f164-41e0-9674-fe5e1540ee8e"/>
+								<textFieldExpression><![CDATA[$F{Gastado Neto}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="192" uuid="aec8dd9d-5498-414f-96b9-f30dff1eafac">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="192" height="30" uuid="163115f2-b0a6-4cac-9871-fb75f0c4887e"/>
+								<text><![CDATA[Mes/Año]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="192" height="30" uuid="33e75e00-4dd2-41eb-88b7-a73639110d9e"/>
+								<textFieldExpression><![CDATA[$F{Mes/Año}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

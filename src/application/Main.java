@@ -8,7 +8,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import performers.*;
-import tools.UITools;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -17,7 +16,10 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 
 public class Main extends Application {
-	// TODO Informes
+
+	public static final String PROVTOTALFACTPORMESES = "Total facturado por meses";
+	public static final String CLIENTETOTALGASTADOMESES = "Total gastado por meses";
+	
 	public static ArrayList<Proveedor> proveedores = new ArrayList<Proveedor>();
 	public static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 	public static ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
