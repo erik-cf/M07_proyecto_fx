@@ -21,17 +21,23 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import performers.Cliente;
 import performers.Proveedor;
 import tools.CreateNewStage;
 
+/*
+ * Controlador de la primera pantalla (el login)
+ */
 public class MainViewController extends Main implements Initializable {
 	
+	// ObservableList con los datos de los usuarios
 	ObservableList loginData;
 	
+	/*
+	 * Objetos del FXML
+	 */
 	@FXML
 	TableView loginTableView;
 	
@@ -46,15 +52,23 @@ public class MainViewController extends Main implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		// Creamos un menú contextual para crear un nuevo usuario
 		ContextMenu menuContextual = new ContextMenu();
 		MenuItem createNewUser = new MenuItem("Nuevo usuario...");
+		
+		// Le damos una accion
 		createNewUser.setOnAction(e -> {
+			
+			// MMostramos la ventana de Crear nuevo, con la opción de USER:
 			CreateNewStage newProduct = new CreateNewStage(CreateNewStage.USER, null);
 			newProduct.initModality(Modality.WINDOW_MODAL);
 			newProduct.initOwner(Main.mainStaticStage);
 			newProduct.show();
 		});
+		
 		menuContextual.getItems().add(createNewUser);
+		
+		// Debemos hacer esto, ya que la escena aun no esta inicializada y debemos poner en el borderpane el menú contextual:
 		Platform.runLater(() -> {
 			
 			((BorderPane)loginTableView.getScene().getRoot()).setOnContextMenuRequested(e->{
@@ -64,19 +78,28 @@ public class MainViewController extends Main implements Initializable {
 		
 	}
 	
+	// Al clicar encima de uno de los RadioButtons, rellenamos el TableView:
 	public void radioButtonAction() {
+		// Si la opción es clientes
 		if(opcionLogin.getSelectedToggle().equals(clienteRadioButton)) {
+			// Creamos las columnas:
 			TableColumn<Cliente, String> nombreCliente = new TableColumn<Cliente, String>("nombre");
 	        nombreCliente.setCellValueFactory(new PropertyValueFactory<Cliente, String>("nombre"));
 	        TableColumn<Cliente, String> usernameCliente = new TableColumn<Cliente, String>("username");
 	        usernameCliente.setCellValueFactory(new PropertyValueFactory<Cliente, String>("username"));
+	        
+	        // Ponemos tamaño a las columnas:
 	        nombreCliente.setPrefWidth(460);
 	        usernameCliente.setPrefWidth(460);
 	        
+	        // Añadimos columnas
 	        loginTableView.getColumns().setAll(nombreCliente, usernameCliente);
 	        
+	        
+	        // Añadimos los datos con el array de clientes del Main:
 	        loginData = FXCollections.observableList(Main.clientes);
 	        loginTableView.setItems(loginData);
+	    
 		}else {
 			TableColumn<Proveedor, String> nombreProveedor = new TableColumn<Proveedor, String>("nombre");
 	        nombreProveedor.setCellValueFactory(new PropertyValueFactory<Proveedor, String>("nombre"));
